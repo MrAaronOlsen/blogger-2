@@ -8,11 +8,27 @@ class BlogsController < ApplicationController
   def show
   end
 
+  def new
+    @blog = Blog.new
+  end
+
+  def create
+    @blog = Blog.new(blog_params)
+
+    if @blog.save
+      flash.notice = "You Created Blog '#{@blog.title}''"
+      redirect_to blog_path(@blog)
+    else
+      render :new
+    end
+  end
+
   def edit
   end
 
   def update
     if @blog.update(blog_params)
+      flash.notice = "You Update Blog '#{@blog.title}''"
       redirect_to blog_path(@blog)
     else
       flash.notice = 'Error'
