@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
     @blogs = Blog.all
@@ -36,6 +36,12 @@ class BlogsController < ApplicationController
     end
   end
 
+  def destroy
+    @blog.destroy
+    flash.notice = "You Deleted Blog '#{@blog.title}''"
+
+    redirect_to blogs_path
+  end
 end
 
 private
