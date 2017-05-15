@@ -1,0 +1,23 @@
+<%= form_for [ @blog, @comment ] do |f| %>
+
+  <ul>
+    <% @comment.errors.messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+
+  <p>
+    <%= f.label :author_name %>
+    <%= f.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

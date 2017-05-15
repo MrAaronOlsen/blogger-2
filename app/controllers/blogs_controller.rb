@@ -6,6 +6,8 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comment.blog_id = @comment.id
   end
 
   def new
