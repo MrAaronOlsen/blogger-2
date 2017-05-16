@@ -1,6 +1,6 @@
 <h3>Aaron's Blogger</h3>
 
-<%= @blogs.each do |blog| %>
+<% @blogs.each do |blog| %>
   <p>
     <h4><%= link_to blog.title, blog_path(blog) %></h4>
   </p>

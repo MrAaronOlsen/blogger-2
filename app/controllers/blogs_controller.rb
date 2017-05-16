@@ -44,7 +44,6 @@ class BlogsController < ApplicationController
 
     redirect_to blogs_path
   end
-end
 
 private
 
@@ -55,3 +54,5 @@ private
   def set_blog
     @blog = Blog.find(params[:id])
   end
+
+end
